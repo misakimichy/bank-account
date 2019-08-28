@@ -3,6 +3,14 @@ label,
     font-size: 18px;
 }
 
+label {
+    margin-top: 10px;
+}
+
+p {
+    font-size: 24px;
+}
+
 .btn {
     display: block;
     margin: 10px auto;
@@ -10,9 +18,10 @@ label,
 }
 
 .create-account {
-    height: 290px;
+    height: 310px;
 }
 
-.total {
+.total,
+#transaction {
     display: none;
 }
