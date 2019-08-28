@@ -14,6 +14,7 @@
     <div class="container">
         <h1 class="page-header">Welcome to ABC Bank</h1>
         <div class="row">
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <form id="create-account">
                     <div class="form-group well create-account">
@@ -26,19 +27,30 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
-                <form id="transaction">
-                    <div class="form-group well">
-                        <h2>Deposit or Withdrawal Transaction</h2>
-                        <label for="name">Deposit Amount:</label>
-                        <input type="text" id="name" class="form-control">
-                        <label for="initial-deposit">Withdrawal Amount:</label>
-                        <input type="text" id="initial-deposit" class="form-control">
-                        <button type="submit" class="btn btn-info">Transaction</button>
-                    </div>     
-                </form>
-            </div>
+            <div class="col-md-3"></div>
         </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="deposit-transaction">
+                        <div class="form-group well">
+                            <h2>Make a Deposit</h2>
+                            <label for="deposit">Deposit Amount:</label>
+                            <input type="text" id="deposit" class="form-control">
+                            <button type="submit" class="btn btn-info">Transaction</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <form id="withdraw-transaction">
+                        <div class="form-group well">
+                            <h2>Make a Withdraw</h2>
+                            <label for="withdraw">Withdrawal Amount:</label>
+                            <input type="text" id="withdraw" class="form-control">
+                            <button type="submit" class="btn btn-info">Transaction</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         <div class="total well">
             <h2>Hi <span id="user-name"></span> ! Your current balance is:</h2>
             <p id="output"></p>
