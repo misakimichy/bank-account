@@ -1,20 +1,17 @@
 // Business Logic
-function BankAccount (userName, initialDeposit, balance, depositAmount, withdrawalAmount) {
+function BankAccount (userName, initialDeposit) {
     this.userName = userName,
-    this.initialDeposit = initialDeposit,
-    this.balance = balance,
-    this.depositAmount = depositAmount,
-    this.withdrawalAmount = withdrawalAmount
+    this.balance = initialDeposit
 }
 
 // Method to add Deposit
-BankAccount.prototype.addDeposit = function() {
-    balance += this.depositAmount;
+BankAccount.prototype.addDeposit = function(deposit) {
+    this.balance += deposit;
 }
 
 // Method to subtract Withdrawal
-BankAccount.prototype.subtractWithdrawal = function() {
-    balance -= this.withdrawalAmount;
+BankAccount.prototype.subtractWithdrawal = function(withdraw) {
+    this.balance -= withdraw;
 }
 
 // User Interface Logic
@@ -28,12 +25,29 @@ $(document).ready(function(){
 
         const userName = $("input#name").val();
         const initialDeposit = parseInt($("input#initial-deposit").val());
-        let currentBalance = initialDeposit;
+        const userAccount = new BankAccount(userName, initialDeposit);
 
-        const newAccount = new BankAccount(userName, initialDeposit, currentBalance);
         $(".total").show();
-        $("#transaction").show();
+        $("#deposit-transaction").show();
+        $("#withdraw-transaction").show();
+        $("#user-name").text(userAccount.userName);
+        $("#output").text(`$ ${userAccount.balance}`);
         clearInput();
-        $("#output").text(`$ ${currentBalance}`);
+
+        $("form#deposit-transaction").submit(function(event) {
+            event.preventDefault();
+            const userDeposit = parseInt($("input#deposit").val());
+            userAccount.addDeposit(userDeposit);
+            $("#output").text(`$ ${userAccount.balance}`);
+            clearInput();
+        });
+
+        $("form#withdraw-transaction").submit(function(event) {
+            event.preventDefault();
+            const userWithdraw = parseInt($("input#withdraw").val());
+            userAccount.subtractWithdrawal(userWithdraw);
+            $("#output").text(`$ ${userAccount.balance}`);
+            clearInput();
+        });
     });
 });
