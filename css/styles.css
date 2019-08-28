@@ -1,0 +1,18 @@
+label,
+.btn {
+    font-size: 18px;
+}
+
+.btn {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+}
+
+.create-account {
+    height: 290px;
+}
+
+.total {
+    display: none;
+}
